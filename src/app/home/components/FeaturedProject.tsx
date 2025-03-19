@@ -1,6 +1,6 @@
 "use client";
 
-import React, { useEffect, useState } from "react";
+import React, { useState, useEffect } from "react";
 import Section from "./Section";
 import Image from "next/image";
 
@@ -310,12 +310,23 @@ export default function FeaturedProject() {
     typeof window !== "undefined" ? window.innerWidth : 0
   );
 
+  const [cardHieght, setCardHieght] = useState<string>(`max-h-36`);
+
   useEffect(() => {
     const handleResize = () => setWindowWidth(window.innerWidth);
-
     window.addEventListener("resize", handleResize);
     return () => window.removeEventListener("resize", handleResize);
   }, []);
+
+  useEffect(() => {
+    setCardHieght(
+      windowWidth < 420
+        ? `max-h-44`
+        : windowWidth < 640
+        ? `max-h-36`
+        : `max-h-28`
+    );
+  }, [windowWidth]);
 
   return (
     <Section id="project">
@@ -337,7 +348,7 @@ export default function FeaturedProject() {
             <button
               key={modelIndex}
               className={`text-left space-y-12 transition-all border-b duration-300 overflow-hidden ${
-                selectProjectIndex === modelIndex ? `max-h-auto` : `${windowWidth < 420 ? `max-h-44` : `max-h-28` }`
+                selectProjectIndex === modelIndex ? `max-h-auto` : cardHieght
               }`}
               onClick={() =>
                 setSelectedProjectIndex((prev) =>
@@ -354,7 +365,7 @@ export default function FeaturedProject() {
                     viewBox="0 0 24 24"
                     fill="currentColor"
                     className={`w-10 h-10 transition ${
-                      selectProjectIndex === modelIndex ? `rotate-180` : `180`
+                      selectProjectIndex === modelIndex ? `rotate-180` : ``
                     }`}
                   >
                     <path d="M12 15.0006L7.75732 10.758L9.17154 9.34375L12 12.1722L14.8284 9.34375L16.2426 10.758L12 15.0006Z"></path>
