@@ -97,13 +97,13 @@ export default function FeaturedProject() {
                                   key={stage.index}
                                   className="flex-shrink-0 w-[80%] sm:w-[60%] md:w-auto"
                                 >
-                                  <figure className="relative bg-gray-100 rounded-2xl overflow-hidden mb-4 hover:shadow-lg transition">
+                                  <figure className="relative bg-gray-100 rounded-2xl overflow-hidden mb-4 hover:shadow-lg transition max-h-[444px]">
                                     <Image
                                       src={stage.image}
                                       alt={stage.title}
                                       width={300}
                                       height={400}
-                                      className="w-full h-auto"
+                                      className="w-full h-full"
                                     />
                                     <span className="absolute w-8 h-8 flex justify-center items-center bg-blue-600 text-white text-xs rounded-full top-3 left-3">
                                       {stage.index}
