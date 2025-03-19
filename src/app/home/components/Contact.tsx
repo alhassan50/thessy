@@ -19,7 +19,7 @@ export default function Contact() {
           </h2>
 
           {/* Contact Grid */}
-          <div className="grid sm:grid-cols-2 md:grid-cols-3  gap-3 md:gap-6 ">
+          <div className="grid sm:grid-cols-2 md:grid-cols-3 2xl:grid-cols-4  gap-3 md:gap-6 ">
             {contacts.map(({ Icon, title, label }, index) => (
               <div
                 key={index}
