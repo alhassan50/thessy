@@ -69,7 +69,7 @@ export default function FeaturedProject() {
                       xmlns="http://www.w3.org/2000/svg"
                       fill="currentColor"
                       viewBox="0 0 24 24"
-                      className={`w-10 h-10 transition-transform duration-300 ${
+                      className={`w-10 h-10 hidden md:block transition-transform duration-300 ${
                         selectedProjectIndex === modelIndex ? "rotate-180" : ""
                       }`}
                     >
@@ -83,7 +83,7 @@ export default function FeaturedProject() {
                 {isOpen && (
                   <>
                     {/* Views */}
-                    <div className="mt-8 space-y-12">
+                    <div className="mt-8 space-y-8">
                       {model.views.map((view, viewIndex) => (
                         <div key={viewIndex}>
                           <h4 className="font-semibold text-gray-600">
@@ -122,7 +122,7 @@ export default function FeaturedProject() {
                             </div>
                           </div>
 
-                          <div className="mt-12 w-full h-[0.1px] bg-[#d9d9d9]" />
+                          <div className="mt-4 w-full h-[1px] bg-[#d9d9d9]" />
                         </div>
                       ))}
                     </div>
