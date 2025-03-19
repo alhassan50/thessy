@@ -22,10 +22,53 @@ html {
   scroll-behavior: smooth;
 }
 
+@font-face {
+  font-family: "ClashDisplay";
+  src: url("/fonts/clash-display/ClashDisplayRegular.otf") format("opentype");
+  font-weight: normal;
+  font-style: normal;
+}
+
+@font-face {
+  font-family: "ClashDisplay";
+  src: url("/fonts/clash-display/ClashDisplayBold.otf") format("opentype");
+  font-weight: bold;
+  font-style: normal;
+}
+
+@font-face {
+  font-family: "ClashDisplay";
+  src: url("/fonts/clash-display/ClashDisplayExtralight.otf") format("opentype");
+  font-weight: 200;
+  font-style: normal;
+}
+
+@font-face {
+  font-family: "ClashDisplay";
+  src: url("/fonts/clash-display/ClashDisplayLight.otf") format("opentype");
+  font-weight: 300;
+  font-style: normal;
+}
+
+@font-face {
+  font-family: "ClashDisplay";
+  src: url("/fonts/clash-display/ClashDisplayMedium.otf") format("opentype");
+  font-weight: 500;
+  font-style: normal;
+}
+
+@font-face {
+  font-family: "ClashDisplay";
+  src: url("/fonts/clash-display/ClashDisplaySemibold.otf") format("opentype");
+  font-weight: 600;
+  font-style: normal;
+}
+
+/* Apply the font globally */
 body {
+  font-family: "ClashDisplay", sans-serif;
   color: var(--foreground);
   background: var(--background);
-  font-family: Arial, Helvetica, sans-serif;
   scroll-behavior: smooth;
 }
 
