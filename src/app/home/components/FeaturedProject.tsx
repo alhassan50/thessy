@@ -381,7 +381,7 @@ export default function FeaturedProject() {
                 <p className="text-gray-600 mt-2 mb-6">{model.description}</p>
               </div>
 
-              <div className="mt-8 space-y-12">
+              {selectProjectIndex === modelIndex && <><div className="mt-8 space-y-12">
                 {/* Views (Front & Back) */}
                 {model.views.map((view, viewIndex) => (
                   <div key={viewIndex}>
@@ -441,7 +441,7 @@ export default function FeaturedProject() {
                     </video>
                   </div>
                 </div>
-              </div>
+              </div></>}
             </button>
           ))}
         </div>
