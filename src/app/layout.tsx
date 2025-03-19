@@ -3,7 +3,8 @@ import "./globals.css";
 
 export const metadata: Metadata = {
   title: "Theresa Asamoah",
-  description: "portfilio",
+  description:
+    "This is the portfolio of Theresa Asamoah - a creative and detail-oriented professional showcasing expertise in design, development, and innovative digital experiences. Discover projects that blend aesthetics with functionality. Let's create something amazing together!",
 };
 
 export default function RootLayout({
@@ -13,13 +14,8 @@ export default function RootLayout({
 }>) {
   return (
     <html lang="en">
-      <body
-        className={`font-clash antialiased text-gray-600`}
-      >
-        <div className="">
-
-        {children}
-        </div>
+      <body className={`font-clash antialiased text-gray-600`}>
+        <div className="">{children}</div>
       </body>
     </html>
   );
