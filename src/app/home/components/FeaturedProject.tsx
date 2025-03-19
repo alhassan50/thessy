@@ -310,7 +310,8 @@ export default function FeaturedProject() {
     typeof window !== "undefined" ? window.innerWidth : 0
   );
 
-  const [cardCollapseHieght, setCardCollapseHieght] = useState<string>(`max-h-36`);
+  const [cardCollapseHieght, setCardCollapseHieght] =
+    useState<string>(`max-h-36`);
   const [cardFullHieght, setCardFullHieght] = useState<string>(`max-h-auto`);
 
   useEffect(() => {
@@ -327,12 +328,8 @@ export default function FeaturedProject() {
         ? `max-h-36`
         : `max-h-28`
     );
-    
-    setCardFullHieght(
-      windowWidth < 1241.82
-        ? `max-h-auto`
-        : `max-h-[2005px]`
-    );
+
+    setCardFullHieght(windowWidth < 1241.82 ? `max-h-auto` : `max-h-[2005px]`);
   }, [windowWidth]);
 
   return (
@@ -355,7 +352,9 @@ export default function FeaturedProject() {
             <button
               key={modelIndex}
               className={`text-left space-y-12 transition-all border-b duration-300 overflow-hidden ${
-                selectProjectIndex === modelIndex ? cardFullHieght : cardCollapseHieght
+                selectProjectIndex === modelIndex
+                  ? cardFullHieght
+                  : cardCollapseHieght
               }`}
               onClick={() =>
                 setSelectedProjectIndex((prev) =>
@@ -381,67 +380,84 @@ export default function FeaturedProject() {
                 <p className="text-gray-600 mt-2 mb-6">{model.description}</p>
               </div>
 
-              {selectProjectIndex === modelIndex && <><div className="mt-8 space-y-12">
-                {/* Views (Front & Back) */}
-                {model.views.map((view, viewIndex) => (
-                  <div key={viewIndex}>
-                    <h4 className="font-semibold text-gray-600">
-                      {viewIndex + 1}. {view.title}
-                    </h4>
-                    <div className="grid grid-cols-1 md:grid-cols-3 gap-6 mt-4">
-                      {view.stages.map((stage) => (
-                        <div key={stage.index} className="">
-                          <figure className="relative bg-gray-100 rounded-2xl overflow-hidden mb-4 hover:shadow-lg transition">
-                            <Image
-                              src={stage.image}
-                              alt={stage.title}
-                              width={300}
-                              height={400}
-                              className="w-full h-auto"
-                            />
-                            <span className="absolute w-8 h-8 flex justify-center items-center bg-blue-600 text-white text-xs rounded-full top-3 left-3">
-                              {stage.index}
-                            </span>
-                          </figure>
-                          <div className="mt-2">
-                            <h5 className="font-semibold text-gray-600 mt-2">
-                              {stage.title}
-                            </h5>
-                            <p className="text-gray-600 text-sm mt-1">
-                              {stage.description}
-                            </p>
+              {selectProjectIndex === modelIndex && (
+                <>
+                  <div className="mt-8 space-y-12">
+                    {/* Views (Front & Back) */}
+                    {model.views.map((view, viewIndex) => (
+                      <div key={viewIndex}>
+                        <h4 className="font-semibold text-gray-600">
+                          {viewIndex + 1}. {view.title}
+                        </h4>
+                        <div className="mt-4">
+                          <div className="md:grid md:grid-cols-3 gap-6">
+                            <div className="flex md:grid md:grid-cols-3 gap-6 overflow-x-auto md:overflow-visible no-scrollbar w-full">
+                              {view.stages.map((stage) => (
+                                <div
+                                  key={stage.index}
+                                  className="flex-shrink-0 w-[80%] sm:w-[60%] md:w-auto"
+                                >
+                                  <figure className="relative bg-gray-100 rounded-2xl overflow-hidden mb-4 hover:shadow-lg transition">
+                                    <Image
+                                      src={stage.image}
+                                      alt={stage.title}
+                                      width={300}
+                                      height={400}
+                                      className="w-full h-auto"
+                                    />
+                                    <span className="absolute w-8 h-8 flex justify-center items-center bg-blue-600 text-white text-xs rounded-full top-3 left-3">
+                                      {stage.index}
+                                    </span>
+                                  </figure>
+                                  <div className="mt-2">
+                                    <h5 className="font-semibold text-gray-600 mt-2">
+                                      {stage.title}
+                                    </h5>
+                                    <p className="text-gray-600 text-sm mt-1">
+                                      {stage.description}
+                                    </p>
+                                  </div>
+                                </div>
+                              ))}
+                            </div>
                           </div>
                         </div>
-                      ))}
+
+                        <div className="mt-12 w-full h-[.1px] bg-[#d9d9d9]"></div>
+                      </div>
+                    ))}
+                  </div>
+
+                  <div className="">
+                    <h4 className="text-xl font-semibold text-gray-600">
+                      3. {model.final.title}
+                    </h4>
+                    <p className="text-gray-600 mt-2">{model.final.desc}</p>
+                    <div className="grid grid-cols-1 md:grid-cols-2 gap-6 mt-6 mb-8">
+                      {/* Front View Video */}
+                      <div className="relative bg-gray-100 rounded-lg overflow-hidden shadow-md">
+                        <video controls className="w-full h-[298px] rounded-md">
+                          <source
+                            src={model.final.video.front}
+                            type="video/mp4"
+                          />
+                          Your browser does not support the video tag.
+                        </video>
+                      </div>
+                      {/* Back View Video */}
+                      <div className="relative bg-gray-100 rounded-lg overflow-hidden shadow-md">
+                        <video controls className="w-full h-[298px] rounded-md">
+                          <source
+                            src={model.final.video.back}
+                            type="video/mp4"
+                          />
+                          Your browser does not support the video tag.
+                        </video>
+                      </div>
                     </div>
-
-                    <div className="mt-12 w-full h-[.1px] bg-[#d9d9d9]"></div>
                   </div>
-                ))}
-              </div>
-
-              <div className="">
-                <h4 className="text-xl font-semibold text-gray-600">
-                  3. {model.final.title}
-                </h4>
-                <p className="text-gray-600 mt-2">{model.final.desc}</p>
-                <div className="grid grid-cols-1 md:grid-cols-2 gap-6 mt-6 mb-8">
-                  {/* Front View Video */}
-                  <div className="relative bg-gray-100 rounded-lg overflow-hidden shadow-md">
-                    <video controls className="w-full h-[298px] rounded-md">
-                      <source src={model.final.video.front} type="video/mp4" />
-                      Your browser does not support the video tag.
-                    </video>
-                  </div>
-                  {/* Back View Video */}
-                  <div className="relative bg-gray-100 rounded-lg overflow-hidden shadow-md">
-                    <video controls className="w-full h-[298px] rounded-md">
-                      <source src={model.final.video.back} type="video/mp4" />
-                      Your browser does not support the video tag.
-                    </video>
-                  </div>
-                </div>
-              </div></>}
+                </>
+              )}
             </button>
           ))}
         </div>
