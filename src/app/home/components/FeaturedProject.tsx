@@ -310,7 +310,8 @@ export default function FeaturedProject() {
     typeof window !== "undefined" ? window.innerWidth : 0
   );
 
-  const [cardHieght, setCardHieght] = useState<string>(`max-h-36`);
+  const [cardCollapseHieght, setCardCollapseHieght] = useState<string>(`max-h-36`);
+  const [cardFullHieght, setCardFullHieght] = useState<string>(`max-h-auto`);
 
   useEffect(() => {
     const handleResize = () => setWindowWidth(window.innerWidth);
@@ -319,12 +320,18 @@ export default function FeaturedProject() {
   }, []);
 
   useEffect(() => {
-    setCardHieght(
+    setCardCollapseHieght(
       windowWidth < 420
         ? `max-h-44`
         : windowWidth < 640
         ? `max-h-36`
         : `max-h-28`
+    );
+    
+    setCardFullHieght(
+      windowWidth < 1241.82
+        ? `max-h-auto`
+        : `max-h-[2005px]`
     );
   }, [windowWidth]);
 
@@ -348,7 +355,7 @@ export default function FeaturedProject() {
             <button
               key={modelIndex}
               className={`text-left space-y-12 transition-all border-b duration-300 overflow-hidden ${
-                selectProjectIndex === modelIndex ? `max-h-auto` : cardHieght
+                selectProjectIndex === modelIndex ? cardFullHieght : cardCollapseHieght
               }`}
               onClick={() =>
                 setSelectedProjectIndex((prev) =>
@@ -418,7 +425,7 @@ export default function FeaturedProject() {
                   3. {model.final.title}
                 </h4>
                 <p className="text-gray-600 mt-2">{model.final.desc}</p>
-                <div className="grid grid-cols-1 md:grid-cols-2 gap-6 mt-6">
+                <div className="grid grid-cols-1 md:grid-cols-2 gap-6 mt-6 mb-8">
                   {/* Front View Video */}
                   <div className="relative bg-gray-100 rounded-lg overflow-hidden shadow-md">
                     <video controls className="w-full h-[298px] rounded-md">
