@@ -10,7 +10,7 @@ export default function FeaturedProject() {
     <Section id="project">
       <div className="max-w-[1054px] mx-auto">
         {/* Header */}
-        <div className="text-left mb-14">
+        <div className="text-left mb-20">
           <h2 className="font-semibold text-gray-600">
             Featured Project - The Premium Wedding Dress Collection
           </h2>
@@ -22,9 +22,9 @@ export default function FeaturedProject() {
         </div>
 
         {/* Models */}
-        <div className="space-y-8">
+        <div className="space-y-20">
           {models.map((model, modelIndex) => (
-            <div key={modelIndex} className="border-b transition-all duration-300 overflow-hidden text-left space-y-4">
+            <div key={modelIndex} className="transition-all duration-300 overflow-hidden text-left space-y-4">
               {/* Model Header */}
               <div className="text-left w-full !mb-2">
                 <h3 className="font-semibold text-gray-600">{model.title}</h3>
