@@ -4,7 +4,7 @@ import Section from "./Section";
 const contacts = [
   { Icon: Call, title: "Phone Call", label: "+233 24 847 2601" },
   { Icon: WhatsApp, title: "WhatsApp", label: "+233 24 847 2601" },
-  { Icon: Facebook, title: "Facebook", label: "Theresahh Asamoah" },
+  { Icon: Facebook, title: "Facebook", label: "Theresah Asamoah" },
   { Icon: Tiktok, title: "TikTok", label: "@mamathess2" },
 ];
 
