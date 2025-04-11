@@ -8,7 +8,7 @@ export default function Hero() {
       {/* Hero Text Content */}
       <div className="">
         <h1 className="inline-block text-4xl bg-white py-2 px-8 rounded-full font-semibold text-gray-700 leading-tight">
-          Hi, My Name is Theresa Asamoah
+          Hi, My Name is Theresah Asamoah
         </h1>
         <br />
         <h1 className="bg-white py-2 px-8 inline-block rounded-full text-4xl font-semibold text-gray-700 leading-tight">
