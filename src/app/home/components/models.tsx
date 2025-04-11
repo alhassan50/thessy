@@ -246,7 +246,7 @@ export const models: Model[] = [
             title: "First Stage",
             description:
               "The upper part features a bodice block with an asymmetric neckline, two princess seams at the front, and a V-shaped waistline. At the back, the bodice also includes two princess seams and a zipper allowance at the center back. The lower part of the dress is designed with gathered fabric for added volume.",
-            image: "/assets/wedding-dresses/model d/1f.jpg",
+            image: "/assets/wedding-dresses/model d/1f.jpeg",
           },
           {
             index: 2,
